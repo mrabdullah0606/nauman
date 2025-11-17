@@ -51,7 +51,7 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="education.html">Education</a>
+                <a class="nav-link" href="education.html">Education</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="essay.html">Essay</a>
@@ -65,7 +65,9 @@
                 <a class="nav-link" href="article.html">Article</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="certificate.html">Certificate</a>
+                <a class="nav-link active" href="certificate.html"
+                  >Certificate</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -75,7 +77,7 @@
         </div>
       </nav>
       <!-- Page Content-->
-       <!-- Page Content -->
+      <!-- Page Content -->
       <div class="container px-5 my-5">
         <div class="text-center mb-5">
           <h1 class="display-5 fw-bolder mb-0">
@@ -101,11 +103,11 @@
                       <img
                         src="assets/c1.jpg"
                         alt="Certificate 1"
-                        class="img-fluid rounded-4 mb-3"
+                        class="img-fluid rounded-4 mb-3 preview-img"
+                        data-full="assets/c1.jpg"
                       />
-                      <p class="mb-0 text-muted small">
-                        Certificate 1
-                      </p>
+                      <p class="mb-0 text-muted small">Certificate 1</p>
+                      <small class="mb-0 text-muted small">click on certificate to preview</small>
                     </div>
                   </div>
                 </div>
@@ -115,11 +117,11 @@
                       <img
                         src="assets/c2.jpg"
                         alt="Certificate 2"
-                        class="img-fluid rounded-4 mb-3"
+                        class="img-fluid rounded-4 mb-3 preview-img"
+                        data-full="assets/c2.jpg"
                       />
-                      <p class="mb-0 text-muted small">
-                        Certificate 2
-                      </p>
+                      <p class="mb-0 text-muted small">Certificate 2</p>
+                      <small class="mb-0 text-muted small">click on certificate to preview</small>
                     </div>
                   </div>
                 </div>
@@ -129,11 +131,11 @@
                       <img
                         src="assets/c3.jpg"
                         alt="Certificate 3"
-                        class="img-fluid rounded-4 mb-3"
+                        class="img-fluid rounded-4 mb-3 preview-img"
+                        data-full="assets/c3.jpg"
                       />
-                      <p class="mb-0 text-muted small">
-                        Certificate 3
-                      </p>
+                      <p class="mb-0 text-muted small">Certificate 3</p>
+                      <small class="mb-0 text-muted small">click on certificate to preview</small>
                     </div>
                   </div>
                 </div>
@@ -143,11 +145,11 @@
                       <img
                         src="assets/c4.jpg"
                         alt="Certificate 4"
-                        class="img-fluid rounded-4 mb-3"
+                        class="img-fluid rounded-4 mb-3 preview-img"
+                        data-full="assets/c4.jpg"
                       />
-                      <p class="mb-0 text-muted small">
-                        Certificate 4
-                      </p>
+                      <p class="mb-0 text-muted small">Certificate 4</p>
+                      <small class="mb-0 text-muted small">click on certificate to preview</small>
                     </div>
                   </div>
                 </div>
@@ -176,6 +178,28 @@
         </div>
       </div>
     </footer>
+    <!-- Image Preview Modal -->
+    <div class="modal fade" id="imagePreviewModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 bg-transparent">
+          <img id="previewImage" class="img-fluid rounded-4 shadow" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".preview-img").forEach((img) => {
+        img.addEventListener("click", function () {
+          let src = this.getAttribute("data-full");
+          document.getElementById("previewImage").src = src;
+          let modal = new bootstrap.Modal(
+            document.getElementById("imagePreviewModal")
+          );
+          modal.show();
+        });
+      });
+    </script>
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
